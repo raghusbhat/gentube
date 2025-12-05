@@ -45,7 +45,10 @@ export function TransformationsCarousel() {
     let scrollInterval: NodeJS.Timeout;
     const startAutoScroll = () => {
       scrollInterval = setInterval(() => {
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+        if (
+          scrollContainer.scrollLeft >=
+          scrollContainer.scrollWidth - scrollContainer.clientWidth
+        ) {
           scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
         } else {
           scrollContainer.scrollBy({ left: 280, behavior: "smooth" });
@@ -69,9 +72,9 @@ export function TransformationsCarousel() {
   }, []);
 
   return (
-    <section className="bg-background py-8 md:py-12">
+    <section className="bg-background py-8 md:py-14">
       <SectionContainer>
-        <h2 className="mb-6 text-center text-2xl font-semibold text-foreground md:text-3xl">
+        <h2 className="mb-12 text-center text-2xl font-semibold text-foreground md:text-3xl">
           See What's Possible
         </h2>
 
@@ -109,17 +112,18 @@ export function TransformationsCarousel() {
                 className="flex-shrink-0"
                 style={{ scrollSnapAlign: "start" }}
               >
-                <div className="relative overflow-hidden rounded-xl border border-border">
+                <div className="overflow-hidden rounded-2xl border-2 border-primary bg-sidebar/50 backdrop-blur-sm shadow-lg  transition-all duration-300 hover:border-primary/70 hover:shadow-xl hover:shadow-primary/20">
                   <div className="relative h-80 w-56 md:h-96 md:w-64">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="h-full w-full object-cover"
                     />
-                    {/* Glassmorphism Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-3 py-2 backdrop-blur-md">
-                      <span className="whitespace-nowrap text-sm font-semibold text-white">{item.title}</span>
-                    </div>
+                  </div>
+                  <div className="border-t-2 border-primary bg-sidebar/80 px-4 py-3 text-center backdrop-blur-md">
+                    <span className="whitespace-nowrap text-sm font-semibold text-sidebar-foreground">
+                      {item.title}
+                    </span>
                   </div>
                 </div>
               </div>

@@ -123,3 +123,33 @@
     font-family: 'Lexend', sans-serif;
   }
 }
+
+/* Custom Scrollbar Styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #729177 #171D2E;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #171D2E;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #729177;
+  border-radius: 10px;
+  border: 2px solid #171D2E;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #85a589;
+}
+
+*::-webkit-scrollbar-corner {
+  background: #171D2E;
+}
