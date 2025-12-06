@@ -42,7 +42,7 @@ export function TransformationsCarousel() {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
 
-    let scrollInterval: NodeJS.Timeout;
+    let scrollInterval: number;
     const startAutoScroll = () => {
       scrollInterval = setInterval(() => {
         if (

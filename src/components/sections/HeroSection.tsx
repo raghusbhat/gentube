@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { SectionContainer } from "@/components/SectionContainer";
-import { ArrowRight, WandSparkles } from "lucide-react";
+import { WandSparkles } from "lucide-react";
 
 export function HeroSection() {
   return (

@@ -68,15 +68,34 @@ export function GenZHero() {
 
           {/* Before/After - Visual Proof */}
           <div className="mt-12 grid grid-cols-2 gap-4 md:mt-16 md:grid-cols-4 md:gap-6">
-            {[1, 2, 3, 4].map((num) => (
+            {[
+              { image: "/Origina.jpeg", label: "Original", isBefore: true },
+              { image: "/12.jpg", label: "AI Anime", isBefore: false },
+              { image: "/Origina.jpeg", label: "Original", isBefore: true },
+              { image: "/18.jpg", label: "Disney Pixar", isBefore: false },
+            ].map((item, idx) => (
               <div
-                key={num}
-                className="group relative overflow-hidden rounded-2xl border-2 border-purple-500/30 bg-sidebar/50 backdrop-blur-sm transition-all hover:border-purple-500 hover:scale-105"
+                key={idx}
+                className={`group relative overflow-hidden rounded-2xl border-2 ${
+                  item.isBefore ? "border-gray-600" : "border-purple-500/50"
+                } bg-sidebar/50 backdrop-blur-sm transition-all hover:border-purple-500 hover:scale-105`}
               >
-                <div className="aspect-square bg-gradient-to-br from-purple-500/20 to-pink-500/20" />
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.label}
+                    className="h-full w-full object-cover transition-transform group-hover:scale-110"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                <div className="absolute bottom-3 left-3 right-3 transform translate-y-10 transition-transform group-hover:translate-y-0">
-                  <span className="text-xs font-bold text-white">Style {num}</span>
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                  <span className={`inline-block rounded-full px-3 py-1 text-xs font-bold ${
+                    item.isBefore
+                      ? "bg-gray-700 text-gray-200"
+                      : "bg-gradient-to-r from-purple-500 to-pink-500 text-white"
+                  }`}>
+                    {item.label}
+                  </span>
                 </div>
               </div>
             ))}
